@@ -3,11 +3,13 @@ import AudioControl from "./AudioControls";
 
 function AllMusic() {
   const [music, setMusic] = useState([]);
+  const url = process.env.REACT_APP_BASE_URL;
+  console.log(url);
   useEffect(() => {
-    fetch("https://music-app-chi-ten.vercel.app/music")
+    fetch(url)
       .then((res) => res.json())
       .then((data) => setMusic(data));
-  }, []);
+  }, [url]);
   return (
     <div className="mx-auto max-w-2xl px-4 py-24 lg:max-w-7xl lg:px-8">
       <h2 className="text-2xl uppercase text-center py-8 font-bold tracking-tight text-gray-900">

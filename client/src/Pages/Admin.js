@@ -9,9 +9,9 @@ import MusicCard from "../components/MusicCard";
 export default function Admin() {
   const [music, setMusic] = useState([]);
   const [user] = useAuthState(auth);
-
   const email = user?.email;
-  const url = `https://music-app-chi-ten.vercel.app/music/${email}`;
+
+  const url = `${process.env.REACT_APP_BASE_URL}/${email}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())

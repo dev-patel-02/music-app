@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../firebse_auth";
 import { toast } from "react-toastify";
@@ -12,7 +12,7 @@ export default function AddSong() {
 
   const [user] = useAuthState(auth);
   const email = user?.email;
-
+  const url = process.env.REACT_APP_BASE_URL;
   const handleAddSong = async (e) => {
     e.preventDefault();
 
@@ -27,23 +27,21 @@ export default function AddSong() {
       formData.append("email", email);
 
       try {
-        await axios
-          .post("https://music-app-chi-ten.vercel.app/music", formData)
-          .then((response) => {
-            if (response.status === 200) {
-              toast.success("Added Music!", {
-                position: "top-center",
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-              });
-            }
-            e.target.reset();
-          });
+        await axios.post(url, formData).then((response) => {
+          if (response.status === 200) {
+            toast.success("Added Music!", {
+              position: "top-center",
+              autoClose: 3000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            });
+          }
+          e.target.reset();
+        });
       } catch (error) {
         console.log(error);
       }
