@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function UserMusic() {
   const [music, setMusic] = useState([]);
   useEffect(() => {
-    fetch("https://music-server-chi.vercel.app/music")
+    fetch("https://music-app-chi-ten.vercel.app/music")
       .then((res) => res.json())
       .then((data) => setMusic(data));
   }, []);

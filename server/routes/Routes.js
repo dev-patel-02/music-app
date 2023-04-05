@@ -7,9 +7,10 @@ const multer = require("multer");
 const { getMusicByEmail } = require("../controllers/getMusicByEmail.js");
 
 
+
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "../client/public/upload");
+    cb(null, "../../client/public/upload");
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + file.originalname);

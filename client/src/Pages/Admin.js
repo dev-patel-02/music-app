@@ -11,7 +11,7 @@ export default function Admin() {
   const [user] = useAuthState(auth);
 
   const email = user?.email;
-  const url = `https://music-server-chi.vercel.app/music/${email}`;
+  const url = `https://music-app-chi-ten.vercel.app/music/${email}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())

@@ -4,7 +4,7 @@ import AudioControl from "./AudioControls";
 function AllMusic() {
   const [music, setMusic] = useState([]);
   useEffect(() => {
-    fetch("https://music-server-chi.vercel.app/music")
+    fetch("https://music-app-chi-ten.vercel.app/music")
       .then((res) => res.json())
       .then((data) => setMusic(data));
   }, []);

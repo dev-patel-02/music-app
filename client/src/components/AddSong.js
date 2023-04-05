@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../firebse_auth";
 import { toast } from "react-toastify";
@@ -16,7 +16,7 @@ export default function AddSong() {
   const handleAddSong = async (e) => {
     e.preventDefault();
 
-    if (songName.length == 0 || artist.length == 0 || file.length == 0) {
+    if (songName.length === 0 || artist.length === 0 || file.length === 0) {
       setErrors(true);
     }
     if (songName && artist && file) {
@@ -28,7 +28,7 @@ export default function AddSong() {
 
       try {
         await axios
-          .post("https://music-server-chi.vercel.app/music", formData)
+          .post("https://music-app-chi-ten.vercel.app/music", formData)
           .then((response) => {
             if (response.status === 200) {
               toast.success("Added Music!", {
