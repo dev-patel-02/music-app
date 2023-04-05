@@ -28,7 +28,7 @@ export default function AddSong() {
 
       try {
         await axios
-          .post("http://localhost:5000/music", formData)
+          .post("https://music-app-chi-ten.vercel.app/music", formData)
           .then((response) => {
             if (response.status === 200) {
               toast.success("Added Music!", {
